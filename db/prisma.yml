@@ -1,0 +1,6 @@
+endpoint: https://still-island-45504.herokuapp.com/db/dev
+datamodel: datamodel.prisma
+
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/

@@ -1,0 +1,13 @@
+type User {
+  id: ID! @id
+  name: String!
+  room: [Room]
+}
+
+type Room {
+  id: ID! @id
+  timeSramp
+  videoUrl: String
+  users: [User]
+  name: String!
+}
