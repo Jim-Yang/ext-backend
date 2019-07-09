@@ -1,13 +1,25 @@
 type User {
   id: ID! @id
   name: String!
-  room: [Room]
+  room: Room
+  createdAt: DateTime! @createdAt
+  icon: String! @default(value: "Default")
 }
 
 type Room {
   id: ID! @id
-  timeSramp
+  name: String! @unique
+  timeStamp: Float
   videoUrl: String
-  users: [User]
-  name: String!
+  users: [User!]
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Message {
+  id: ID! @id
+  room: Room!
+  user: User!
+  payload: String!
+  createdAt: DateTime! @createdAt
 }
