@@ -1,0 +1,9 @@
+# import Room, User from './types/database.graphql'
+
+type Mutation {
+    testSub(room: String, value: String): String
+    joinRoom(userId: String, roomName: String): Room
+    leaveRoom(userId: String, roomName: String): Room
+    createRoom(roomName: String): Room
+    createUser(userName: String): User
+}

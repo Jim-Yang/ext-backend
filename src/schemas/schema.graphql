@@ -1,0 +1,10 @@
+# import User from './types/database.graphql' 
+# import Room from './types/database.graphql' 
+# import Mutation from './mutations.graphql'
+# import Subscription from './subscriptions.graphql'
+
+type Query {
+    hello(name: String): String
+    users: [User]
+    user(id: String): User
+}

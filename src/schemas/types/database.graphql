@@ -1,0 +1,26 @@
+type Room {
+  id: ID!
+  name: String!
+  timeStamp: Float
+  videoUrl: String
+  createdAt: String!
+  updatedAt: String!
+  users: [User]
+}
+
+
+type User {
+  id: String!
+  name: String!
+  room: Room
+  createdAt: String!
+  icon: String!
+}
+
+type Message {
+  id: ID! @id
+  room: Room!
+  user: User!
+  payload: String!
+  createdAt: String!
+}
