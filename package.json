@@ -15,13 +15,13 @@
   "dependencies": {
     "apollo-server": "^2.6.7",
     "graphql-import": "^0.7.1",
-    "prisma-client-lib": "^1.34.1"
+    "prisma-client-lib": "^1.34.1",
+    "ts-node": "6.2.0",
+    "typescript": "2.9.2",
+    "graphql-cli": "2.17.0"
   },
   "devDependencies": {
-    "graphql-cli": "2.17.0",
     "npm-run-all": "4.1.5",
-    "ts-node": "6.2.0",
-    "ts-node-dev": "^1.0.0-pre.40",
-    "typescript": "2.9.2"
+    "ts-node-dev": "^1.0.0-pre.40"
   }
 }
