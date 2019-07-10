@@ -14,7 +14,8 @@ const server = new ApolloServer({
   context: {
     prisma,
     pubSub
-  }
+  },
+  playground: true
 })
 
 server.listen({ port: process.env.PORT || 4000 }).then(({ url, subscriptionsUrl }) => {
