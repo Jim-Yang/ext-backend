@@ -1,0 +1,19 @@
+input CommandInput {
+  type: String!
+  payload: PayloadInput
+}
+
+input PayloadInput {
+  url: String
+  timeStamp: Float
+}
+
+type Command {
+    type: String!
+    payload: Payload
+}
+
+type Payload {
+    url: String
+    timeStamp: Float
+}

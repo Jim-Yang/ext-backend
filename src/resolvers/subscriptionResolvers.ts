@@ -1,11 +1,12 @@
+import { Commands } from "../types/commands";
+
 export class SubscriptionResolvers {
-    public testSub = {
-        resolve: (payload) => {
-            console.log(payload)
-            return payload.value
+    public commands = {
+        resolve: (payload: Commands) => {
+            return payload
         },
-        subscribe: (_parent, { room }, context) => {
-            return context.pubSub.asyncIterator(room)
+        subscribe: (_parent, { roomName }, context) => {
+            return context.pubSub.asyncIterator(roomName)
         }
     }
 }

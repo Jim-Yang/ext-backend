@@ -5,6 +5,8 @@
 
 type Query {
     hello(name: String): String
-    users: [User]
     user(id: String): User
+    users: [User]
+    room(roomName: String): Room
+    rooms: [Room]
 }

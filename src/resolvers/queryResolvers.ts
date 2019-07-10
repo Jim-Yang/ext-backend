@@ -17,12 +17,12 @@ export class QueryResolvers {
     }
 
     public room = async (_parent, { roomName }, context: AppContext) => {
-        const room = context.prisma.room({ name: roomName })
-        return room        
+        const room = await context.prisma.room({ name: roomName })
+        return room    
     }
 
     public rooms = async (_parent, _args, context: AppContext) => {
-        const room = context.prisma.rooms()
-        return room
+        const rooms = await context.prisma.rooms()
+        return rooms
     }
 }
