@@ -1,12 +1,11 @@
 import { ApolloServer, PubSub } from 'apollo-server'
-import { prisma } from './../db/generated/prisma-client'
+import { prisma } from './db/generated/prisma-client'
 import { importSchema } from 'graphql-import'
-import { createRootResolvers } from './resolvers/rootResolvers';
-
+import { createRootResolvers } from './resolvers/rootResolvers'
 
 const typeDefs = importSchema(`${__dirname}/schemas/schema.graphql`)
 
-const pubSub = new PubSub();
+const pubSub = new PubSub()
 
 const server = new ApolloServer({
   typeDefs,
@@ -19,7 +18,9 @@ const server = new ApolloServer({
   introspection: true
 })
 
-server.listen({ port: process.env.PORT || 4000 }).then(({ url, subscriptionsUrl }) => {
-  console.log(`🚀 Server ready at ${url}`);
-  console.log(`Subscriptions ready at ${subscriptionsUrl}`);
-});
+server
+  .listen({ port: process.env.PORT || 4001 })
+  .then(({ url, subscriptionsUrl }) => {
+    console.log(`🚀 Server ready at ${url}`)
+    console.log(`Subscriptions ready at ${subscriptionsUrl}`)
+  })

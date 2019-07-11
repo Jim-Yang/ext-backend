@@ -1,4 +1,4 @@
-import { User } from "./data";
+import { User, Room } from "./data";
 
 /**
  * Come to think about it, the server doesn't actually need these, the client does
@@ -19,8 +19,9 @@ export enum COMMANDS {
 
 export type Command = {
     type: COMMANDS,
-    payload?: Payload
-    sender: User
+    payload?: Payload,
+    sender: User,
+    room: Room
 }
 
 export type Payload = {
@@ -30,18 +31,9 @@ export type Payload = {
 }
 
 /**
- * The input from sendCommand resolver
- */
-export type CommandInput = {
-    roomName: string
-    userName: string
-    userId: string
-    command: Command
-}
-
-/**
  * Command Types
  */
+
 export interface PlayCommand extends Command {
     type: COMMANDS.PLAY
 }

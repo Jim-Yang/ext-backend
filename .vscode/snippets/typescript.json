@@ -1,0 +1,25 @@
+{
+  "Print to console": {
+    "prefix": "log",
+    "body": ["console.log($1);", "$2"],
+    "description": "Log output to console"
+  },
+
+  "Jest describe": {
+    "prefix": "describes",
+    "body": ["describe('${1:describe clause}', () => {", "  $0", "});"],
+    "description": "Describe a Jest test case"
+  },
+
+  "Jest test case": {
+    "prefix": "its",
+    "body": ["it('${1:test case clause}', () => {", "  $0", "});"],
+    "description": "Declare a single Jest test condition"
+  },
+
+  "Jest test case before": {
+    "prefix": "befores",
+    "body": ["beforeEach(() => {", "  $0", "});"],
+    "description": "Declare a function to be run before each Jest test case"
+  }
+}

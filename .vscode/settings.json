@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "tslint.enable": true,
+  "tslint.configFile": "tslint.json"
+}

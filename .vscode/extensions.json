@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "kumar-harsh.graphql-for-vscode",
+    "esbenp.prettier-vscode",
+    "philfontaine.autolaunch",
+    "firsttris.vscode-jest-runner",
+    "rebornix.project-snippets"
+  ]
+}
