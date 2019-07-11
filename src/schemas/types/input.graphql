@@ -1,0 +1,17 @@
+input SendCommandInput {
+    roomName: String!
+    userName: String!
+    userId: String!
+    command: CommandInput!
+}
+
+input CommandInput {
+    type: String!
+    data: DataInput
+}
+
+input DataInput {
+    url: String
+    seekTime: String
+    message: String
+}

@@ -8,7 +8,7 @@ export class QueryResolvers {
     }
 
     public user = async (_parent, { id }, context: AppContext) => {
-        const user = context.prisma.user({ id })
+    const user = context.prisma.user({ id })
         return user
     }
 

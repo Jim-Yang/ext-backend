@@ -1,0 +1,11 @@
+type Command {
+    type: String!
+    payload: Payload
+    sender: User
+}
+
+type Payload {
+    url: String
+    seekTime: String
+    message: String
+}

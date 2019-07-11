@@ -1,11 +1,13 @@
 # import Room, User from './types/database.graphql'
-# import CommandInput from './types/commands.graphql'
+# import Command from './types/data.graphql'
+# import SendCommandInput from './types/input.graphql'
 
 type Mutation {
     testSub(room: String, value: String): String
-    sendCommand(roomName: String, userId: String, command: CommandInput): Room
+    sendCommand(input: SendCommandInput): Command
     joinRoom(userId: String, roomName: String): Room
     leaveRoom(userId: String, roomName: String): Room
     createRoom(roomName: String): Room
     createUser(userName: String): User
 }
+

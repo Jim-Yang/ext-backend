@@ -1,4 +1,5 @@
 import { AppContext } from "../types/graphql";
+import { CommandInput, Command } from "../types/commands";
 
 export class MutationResolvers {
     
@@ -7,9 +8,17 @@ export class MutationResolvers {
         return value
     }
 
-    public sendCommand = (_parent, { roomName, userId, command }, context: AppContext) => {
-        context.pubSub.publish(roomName, command)
-        return context.prisma.room({name: roomName})
+    public sendCommand = (_parent, args, context: AppContext) => {
+        const { roomName, command, userName, userId } = args.input
+        const returnCommand: Command = {
+            ...command,
+            sender: {
+                id: userId,
+                name: userName
+            }
+        }
+        context.pubSub.publish(roomName, returnCommand)
+        return returnCommand
     }
 
     public createUser = async (_parent, { userName }, context: AppContext) => {

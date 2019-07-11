@@ -1,4 +1,5 @@
-# import Room, User, Command from './types/database.graphql'
+# import Room, User from './types/database.graphql'
+# import Command from './types/data.graphql'
 
 type Subscription {
     commands(roomName: String): Command
