@@ -1,21 +1,23 @@
 import { Command, COMMANDS } from '../types/commands'
-import { Prisma, prisma } from '../db/generated/prisma-client'
+import { Prisma } from '../db/generated/prisma-client'
 
 export class CommandsModel {
-  handleCommand(command: Command, db: Prisma) {
+  public async handleCommand(command: Command, db: Prisma) {
     if (!command.payload) {
       return
     }
     switch (command.type) {
       case COMMANDS.CHANGE_URL:
-        prisma.updateRoom({
+        await db.updateRoom({
           data: { videoUrl: command.payload.url },
           where: { name: command.room.name }
         })
-        console.log('CHANGE URL TO ', command.payload.url)
         return
       case COMMANDS.SEEK:
-        console.log('SEEKING TO ', command.payload.seekTime)
+        await db.updateRoom({
+          data: { seekTime: command.payload.seekTime },
+          where: { name: command.room.name }
+        })
         return
       default:
         return

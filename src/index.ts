@@ -2,20 +2,29 @@ import { ApolloServer, PubSub } from 'apollo-server'
 import { prisma } from './db/generated/prisma-client'
 import { importSchema } from 'graphql-import'
 import { createRootResolvers } from './resolvers/rootResolvers'
+import { Model } from './types/graphql'
+import { CommandsModel } from './models/commands'
+import { ConnectionHandler } from './utils/subscriptionUtils'
 
 const typeDefs = importSchema(`${__dirname}/schemas/schema.graphql`)
 
 const pubSub = new PubSub()
+
+const models: Model = {
+  commands: new CommandsModel()
+}
 
 const server = new ApolloServer({
   typeDefs,
   resolvers: createRootResolvers(),
   context: {
     prisma,
-    pubSub
+    pubSub,
+    models
   },
   playground: true,
-  introspection: true
+  introspection: true,
+  subscriptions: new ConnectionHandler()
 })
 
 server

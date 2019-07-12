@@ -11,18 +11,21 @@ export class MutationResolvers {
     const { roomName, command, userName, userId } = args.input
     const returnCommand: Command = {
       ...command,
+      room: {
+        name: roomName
+      },
       sender: {
         id: userId,
         name: userName
       }
     }
+    context.models.commands.handleCommand(returnCommand, context.prisma)
     context.pubSub.publish(roomName, returnCommand)
     return returnCommand
   }
 
   public createUser = async (_parent, { userName }, context: AppContext) => {
     const user = await context.prisma.createUser({
-      icon: 'SomeIcon',
       name: userName
     })
     return user

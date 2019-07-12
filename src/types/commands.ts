@@ -1,33 +1,33 @@
-import { User, Room } from "./data";
+import { User, Room } from './data'
 
 /**
  * Come to think about it, the server doesn't actually need these, the client does
- * 
+ *
  * Available Commands:
- * 
+ *
  * Play/Pause/Seek/Change url will send a message to the chat from the User
- * 
+ *
  * Things like... people joining/leaving rooms will be send by the Server 'User'
  */
 export enum COMMANDS {
-    PLAY="PLAY",
-    PAUSE="PAUSE",
-    SEEK="SEEK",
-    CHANGE_URL="CHANGE_URL",
-    SEND_MESSAGE="SEND_MESSAGE"
+  PLAY = 'PLAY',
+  PAUSE = 'PAUSE',
+  SEEK = 'SEEK',
+  CHANGE_URL = 'CHANGE_URL',
+  SEND_MESSAGE = 'SEND_MESSAGE'
 }
 
-export type Command = {
-    type: COMMANDS,
-    payload?: Payload,
-    sender: User,
-    room: Room
+export interface Command {
+  type: COMMANDS
+  payload?: Payload
+  sender: User
+  room: Room
 }
 
-export type Payload = {
-    url?: string
-    seekTime?: string
-    message?: string
+export interface Payload {
+  url?: string
+  seekTime?: string
+  message?: string
 }
 
 /**
@@ -35,24 +35,24 @@ export type Payload = {
  */
 
 export interface PlayCommand extends Command {
-    type: COMMANDS.PLAY
+  type: COMMANDS.PLAY
 }
 
 export interface PauseCommand extends Command {
-    type: COMMANDS.PAUSE
+  type: COMMANDS.PAUSE
 }
 
 export interface SeekCommand extends Command {
-    type: COMMANDS.SEEK
-    payload: { seekTime: string }
+  type: COMMANDS.SEEK
+  payload: { seekTime: string }
 }
 
 export interface ChangeUrlCommand extends Command {
-    type: COMMANDS.CHANGE_URL,
-    payload: { url: string }
+  type: COMMANDS.CHANGE_URL
+  payload: { url: string }
 }
 
 export interface MessageCommand extends Command {
-    type: COMMANDS.SEND_MESSAGE,
-    payload: { message: string }
+  type: COMMANDS.SEND_MESSAGE
+  payload: { message: string }
 }
