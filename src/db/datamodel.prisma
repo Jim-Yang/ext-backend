@@ -9,7 +9,7 @@ type User {
 type Room {
   id: ID! @id
   name: String! @unique
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
   users: [User!]
   createdAt: DateTime! @createdAt

@@ -193,7 +193,7 @@ type Query {
 type Room {
   id: ID!
   name: String!
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
   createdAt: DateTime!
@@ -209,7 +209,7 @@ type RoomConnection {
 input RoomCreateInput {
   id: ID
   name: String!
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
   users: UserCreateManyWithoutRoomInput
 }
@@ -227,7 +227,7 @@ input RoomCreateOneWithoutUsersInput {
 input RoomCreateWithoutUsersInput {
   id: ID
   name: String!
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
 }
 
@@ -241,8 +241,8 @@ enum RoomOrderByInput {
   id_DESC
   name_ASC
   name_DESC
-  timeStamp_ASC
-  timeStamp_DESC
+  seekTime_ASC
+  seekTime_DESC
   videoUrl_ASC
   videoUrl_DESC
   createdAt_ASC
@@ -254,7 +254,7 @@ enum RoomOrderByInput {
 type RoomPreviousValues {
   id: ID!
   name: String!
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -280,21 +280,21 @@ input RoomSubscriptionWhereInput {
 
 input RoomUpdateDataInput {
   name: String
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
   users: UserUpdateManyWithoutRoomInput
 }
 
 input RoomUpdateInput {
   name: String
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
   users: UserUpdateManyWithoutRoomInput
 }
 
 input RoomUpdateManyMutationInput {
   name: String
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
 }
 
@@ -316,7 +316,7 @@ input RoomUpdateOneWithoutUsersInput {
 
 input RoomUpdateWithoutUsersDataInput {
   name: String
-  timeStamp: Float
+  seekTime: String
   videoUrl: String
 }
 
@@ -359,14 +359,20 @@ input RoomWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
-  timeStamp: Float
-  timeStamp_not: Float
-  timeStamp_in: [Float!]
-  timeStamp_not_in: [Float!]
-  timeStamp_lt: Float
-  timeStamp_lte: Float
-  timeStamp_gt: Float
-  timeStamp_gte: Float
+  seekTime: String
+  seekTime_not: String
+  seekTime_in: [String!]
+  seekTime_not_in: [String!]
+  seekTime_lt: String
+  seekTime_lte: String
+  seekTime_gt: String
+  seekTime_gte: String
+  seekTime_contains: String
+  seekTime_not_contains: String
+  seekTime_starts_with: String
+  seekTime_not_starts_with: String
+  seekTime_ends_with: String
+  seekTime_not_ends_with: String
   videoUrl: String
   videoUrl_not: String
   videoUrl_in: [String!]
