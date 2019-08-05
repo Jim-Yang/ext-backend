@@ -1,12 +1,12 @@
-# import User from './types/database.graphql' 
-# import Room from './types/database.graphql' 
+# import User from './types/database.graphql'
+# import Room from './types/database.graphql'
 # import Mutation from './mutations.graphql'
 # import Subscription from './subscriptions.graphql'
 
 type Query {
-    hello(name: String): String
-    user(id: String): User
-    users: [User]
-    room(roomName: String): Room
-    rooms: [Room]
+  hello(name: String): String
+  user(id: String): User
+  users: [User]
+  room(roomName: String): Room
+  rooms: [Room]
 }

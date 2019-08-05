@@ -2,5 +2,5 @@
 # import Command from './types/data.graphql'
 
 type Subscription {
-    commands(roomName: String): Command
+  commands(roomName: String): Command
 }
