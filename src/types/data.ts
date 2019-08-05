@@ -23,3 +23,8 @@ export interface Message {
   payload: string
   createdAt: string
 }
+
+export interface ConnectionParams {
+  userId: string
+  roomName: string
+}
