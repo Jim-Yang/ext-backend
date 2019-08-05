@@ -3,11 +3,10 @@
 # import SendCommandInput from './types/input.graphql'
 
 type Mutation {
-    testSub(room: String, value: String): String
-    sendCommand(input: SendCommandInput): Command
-    joinRoom(userId: String, roomName: String): Room
-    leaveRoom(userId: String, roomName: String): Room
-    createRoom(roomName: String): Room
-    createUser(userName: String): User
+  testSub(room: String, value: String): String
+  sendCommand(input: SendCommandInput): Command
+  joinRoom(userId: String, roomName: String): Room
+  leaveRoom(userId: String, roomName: String): Room
+  createRoom: Room
+  createUser(userName: String): User
 }
-
