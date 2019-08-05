@@ -1,4 +1,3 @@
-import { Prisma } from '../db/generated/prisma-client'
 import { AppContext } from '../types/graphql'
 
 export class QueryResolvers {

@@ -24,7 +24,7 @@ const server = new ApolloServer({
   },
   playground: true,
   introspection: true,
-  subscriptions: new ConnectionHandler()
+  subscriptions: new ConnectionHandler(pubSub)
 })
 
 server

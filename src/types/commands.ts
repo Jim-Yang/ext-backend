@@ -21,7 +21,7 @@ export interface Command {
   type: COMMANDS
   payload?: Payload
   sender: User
-  room: Room
+  room?: Room
 }
 
 export interface Payload {
