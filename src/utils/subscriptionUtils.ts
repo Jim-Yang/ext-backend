@@ -13,14 +13,13 @@ export class ConnectionHandler {
     connectionParams: ConnectionParams,
     webSocket: any
   ) => {
-    if (!connectionParams.userId) {
+    const { userId, roomName } = connectionParams
+    if (!userId) {
       throw Error('No userId provided')
     }
-    if (!connectionParams.roomName) {
+    if (!roomName) {
       throw Error('No roomName provided')
     }
-
-    const { userId, roomName } = connectionParams
     const user = await prisma.user({ id: userId })
     if (!user) {
       throw Error('Invalid user id')
@@ -31,12 +30,16 @@ export class ConnectionHandler {
   }
 
   public onDisconnect = async (webSocket: any) => {
-    const userId = webSocket.userId
+    const { userId, roomName } = webSocket
+    /**
+     * This code runs over and over again for some reason.
+     * If it does not contain userId then do nothing, or else it will complain
+     */
+    if (!userId) {
+      return
+    }
     const user = await prisma.user({ id: userId })
-    this.pubSub.publish(
-      webSocket.roomName,
-      this.roomMessage(user, 'left the room')
-    )
+    this.pubSub.publish(roomName, this.roomMessage(user, 'left the room'))
   }
 
   private roomMessage(user: User, message: string): Command {

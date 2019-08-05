@@ -33,3 +33,4 @@ server
     console.log(`🚀 Server ready at ${url}`)
     console.log(`Subscriptions ready at ${subscriptionsUrl}`)
   })
+  .catch(error => console.log(error))
