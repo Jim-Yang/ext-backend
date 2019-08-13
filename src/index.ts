@@ -13,17 +13,26 @@ const pubSub = new PubSub()
 const models: Model = {
   commands: new CommandsModel()
 }
-
+// @ts-ignore
 const server = new ApolloServer({
+  // @ts-ignore
   typeDefs,
+  // @ts-ignore
   resolvers: createRootResolvers(),
+  // @ts-ignore
   context: {
+    // @ts-ignore
     prisma,
+    // @ts-ignore
     pubSub,
+    // @ts-ignore
     models
   },
+  // @ts-ignore
   playground: true,
+  // @ts-ignore
   introspection: true,
+  // @ts-ignore
   subscriptions: new ConnectionHandler(pubSub)
 })
 
