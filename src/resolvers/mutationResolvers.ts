@@ -1,6 +1,7 @@
 import { AppContext } from '../types/graphql'
 import { Command } from '../types/commands'
 import { generateCombination } from 'gfycat-style-urls'
+import { hri } from 'human-readable-ids'
 
 export class MutationResolvers {
   public testSub = (_parent, { room, value }, context) => {
@@ -35,13 +36,13 @@ export class MutationResolvers {
   // Separate User and Room into different resolvers
 
   public createRoom = async (_parent, _args, context: AppContext) => {
-    let generatedRoom = generateCombination(2, '')
+    let generatedRoom = hri.random()
     while (true) {
       const findRoom = await context.prisma.room({ name: generatedRoom })
       if (!findRoom) {
         break
       }
-      generatedRoom = generateCombination(2, '')
+      generatedRoom = hri.random()
     }
     const room = await context.prisma.createRoom({
       name: generatedRoom
