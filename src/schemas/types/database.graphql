@@ -8,7 +8,6 @@ type Room {
   users: [User]
 }
 
-
 type User {
   id: String!
   name: String!
