@@ -1,6 +1,5 @@
 import { AppContext } from '../types/graphql'
 import { Command } from '../types/commands'
-import { generateCombination } from 'gfycat-style-urls'
 import { hri } from 'human-readable-ids'
 
 export class MutationResolvers {
